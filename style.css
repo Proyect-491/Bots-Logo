@@ -1,201 +1,107 @@
-:root {
-    --bg: #0a0a0c;
-    --card-bg: #141418;
-    --accent-blue: #00d2ff;
-    --accent-pink: #ff007a;
-    --text-white: #ffffff;
-    --text-dim: #a0a0a0;
-}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BOT&LOGS | Arsenal Digital ⚡💎</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    scroll-behavior: smooth;
-}
+    <div class="grid-background"></div>
+    <div class="status-indicator"><span class="dot"></span> SISTEMAS ONLINE</div>
 
-body {
-    background-color: var(--bg);
-    color: var(--text-white);
-    font-family: 'Poppins', sans-serif;
-    overflow-x: hidden;
-}
+    <nav class="navbar">
+        <div class="logo">BOT<span>&</span>LOGS ⚡</div>
+        <ul class="nav-links">
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#tienda">Arsenal</a></li>
+            <li><a href="#features">Élite</a></li>
+            <li><a href="#tos">TOS</a></li>
+            <li><a href="#soporte">Soporte</a></li>
+        </ul>
+    </nav>
 
-/* Fondo de Cuadrícula Animado */
-.grid-background {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: 
-        linear-gradient(to right, rgba(255,255,255,0.05) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(255,255,255,0.05) 1px, transparent 1px);
-    background-size: 50px 50px;
-    z-index: -1;
-    animation: moveGrid 20s linear infinite;
-}
+    <header id="inicio" class="hero">
+        <h1 class="glitch" data-text="BOT&LOGS">BOT&LOGS</h1>
+        <p class="subtitle">Scripts de FiveM Únicos, Ropa Personalizada y Discord Experto</p>
+        <a href="#tienda" class="btn-glow">EXPLORAR TIENDA</a>
+    </header>
 
-@keyframes moveGrid {
-    from { transform: translateY(0); }
-    to { transform: translateY(50px); }
-}
+    <section id="features" class="features-section">
+        <h2 class="section-title">NUESTROS ESTÁNDARES</h2>
+        <div class="features-grid">
+            <div class="feat-card">
+                <div class="feat-icon">🚀</div>
+                <h3>Optimización Total</h3>
+                <p>Scripts con consumo 0.00ms garantizado. Rendimiento puro.</p>
+            </div>
+            <div class="feat-card">
+                <div class="feat-icon">🛡️</div>
+                <h3>Seguridad Escrow</h3>
+                <p>Protección oficial de CFX para asegurar tu inversión.</p>
+            </div>
+            <div class="feat-card">
+                <div class="feat-icon">🛠️</div>
+                <h3>Soporte Técnico</h3>
+                <p>Te acompañamos en la instalación y configuración inicial.</p>
+            </div>
+        </div>
+    </section>
 
-/* Navbar */
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    padding: 2rem 5%;
-    position: sticky;
-    top: 0;
-    background: rgba(10, 10, 12, 0.9);
-    backdrop-filter: blur(10px);
-    z-index: 1000;
-}
+    <section class="process-section">
+        <h2 class="section-title">CÓMO TRABAJAMOS</h2>
+        <div class="process-steps">
+            <div class="step"><span>1</span><h4>Elige</h4><p>Busca en el arsenal</p></div>
+            <div class="step"><span>2</span><h4>Ticket</h4><p>Entra al Discord</p></div>
+            <div class="step"><span>3</span><h4>Verifica</h4><p>Pago y TOS</p></div>
+            <div class="step"><span>4</span><h4>Recibe</h4><p>Entrega inmediata</p></div>
+        </div>
+    </section>
 
-.logo {
-    font-weight: 900;
-    font-size: 1.5rem;
-    letter-spacing: 2px;
-}
+    <section class="trust-section">
+        <h2 class="section-title">CLIENTES SATISFECHOS</h2>
+        <div class="testimonial-grid">
+            <div class="test-card">"El sistema de facciones es otro nivel, 100% recomendado." - <b>@Admin_RP</b></div>
+            <div class="test-card">"La ropa no pesa nada, mis usuarios están encantados." - <b>@Dueño_Server</b></div>
+        </div>
+    </section>
 
-.logo span { color: var(--accent-pink); }
+    <section class="faq-section">
+        <h2 class="section-title">DUDAS RÁPIDAS (FAQ)</h2>
+        <div class="faq-container">
+            <details>
+                <summary>¿Los scripts son de por vida?</summary>
+                <p>Sí, una vez comprados tienes acceso permanente a la licencia.</p>
+            </details>
+            <details>
+                <summary>¿Hacéis trabajos personalizados?</summary>
+                <p>Sí, abre un ticket de "Custom" para presupuestos a medida.</p>
+            </details>
+        </div>
+    </section>
 
-.nav-links {
-    display: flex;
-    list-style: none;
-    gap: 2rem;
-}
+    <section id="tos" class="tos-container">
+        <div class="tos-box">
+            <div class="tos-header-notice">
+                <h3>📜 AVISO LEGAL: TOS VINCULANTE</h3>
+                <p>Al comprar, aceptas automáticamente nuestros 34 puntos de normativa.</p>
+            </div>
+            <div class="tos-scroll-area">
+                <div id="tos-content"></div>
+            </div>
+        </div>
+    </section>
 
-.nav-links a {
-    text-decoration: none;
-    color: var(--text-white);
-    font-weight: 500;
-    transition: 0.3s;
-}
+    <section id="soporte" class="support-section">
+        <div class="support-card">
+            <h2>¿LISTO PARA EMPEZAR?</h2>
+            <p>Únete a nuestra comunidad para adquirir tus productos.</p>
+            <a href="https://discord.gg/TU_LINK" class="btn-support" target="_blank">✅ ENTRAR AL DISCORD</a>
+        </div>
+    </section>
 
-.nav-links a:hover { color: var(--accent-blue); text-shadow: 0 0 10px var(--accent-blue); }
-
-/* Hero Section */
-.hero {
-    height: 90vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-}
-
-.glitch {
-    font-size: 6rem;
-    font-weight: 900;
-    position: relative;
-    color: var(--accent-blue);
-    text-shadow: 0 0 20px rgba(0, 210, 255, 0.5);
-}
-
-.subtitle {
-    font-size: 1.2rem;
-    color: var(--text-dim);
-    margin-bottom: 2rem;
-}
-
-.btn-glow {
-    padding: 1rem 2.5rem;
-    background: transparent;
-    border: 2px solid var(--accent-blue);
-    color: var(--accent-blue);
-    text-decoration: none;
-    font-weight: bold;
-    border-radius: 5px;
-    transition: 0.4s;
-}
-
-.btn-glow:hover {
-    background: var(--accent-blue);
-    color: var(--bg);
-    box-shadow: 0 0 30px var(--accent-blue);
-}
-
-/* Tarjetas de Tienda */
-.shop-container { padding: 5rem 5%; }
-.section-title { text-align: center; font-size: 3rem; margin-bottom: 4rem; }
-
-.category-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-}
-
-.card {
-    background: var(--card-bg);
-    padding: 2.5rem;
-    border-radius: 15px;
-    position: relative;
-    transition: 0.4s;
-    border: 1px solid rgba(255,255,255,0.05);
-}
-
-.card:hover {
-    transform: translateY(-10px);
-}
-
-.card.tech:hover { border-color: var(--accent-blue); box-shadow: 0 10px 30px rgba(0, 210, 255, 0.2); }
-.card.creative:hover { border-color: var(--accent-pink); box-shadow: 0 10px 30px rgba(255, 0, 122, 0.2); }
-
-.card-icon { font-size: 3rem; margin-bottom: 1rem; }
-.tag {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    font-size: 0.7rem;
-    padding: 2px 8px;
-    background: var(--accent-pink);
-    border-radius: 3px;
-}
-
-/* TOS Section */
-.tos-container { background: #000; padding: 5rem 5%; }
-.tos-box {
-    max-width: 900px;
-    margin: 0 auto;
-    border: 1px solid #333;
-    padding: 2rem;
-    background: var(--card-bg);
-}
-
-.tos-scroll-area {
-    height: 400px;
-    overflow-y: scroll;
-    padding-right: 1rem;
-}
-
-.tos-point {
-    margin-bottom: 1.5rem;
-    border-bottom: 1px solid #222;
-    padding-bottom: 1rem;
-}
-
-.tos-point h4 { color: var(--accent-blue); margin-bottom: 0.5rem; }
-.tos-point p { font-size: 0.9rem; color: var(--text-dim); }
-
-/* Soporte */
-.support-section { padding: 5rem 5%; text-align: center; }
-.support-card {
-    background: linear-gradient(45deg, #1a1a1a, #000);
-    padding: 4rem;
-    border-radius: 20px;
-    border: 1px solid var(--accent-pink);
-}
-
-.btn-support {
-    display: inline-block;
-    margin-top: 2rem;
-    padding: 1rem 3rem;
-    background: var(--accent-pink);
-    color: white;
-    text-decoration: none;
-    border-radius: 50px;
-    font-weight: bold;
-    box-shadow: 0 0 20px var(--accent-pink);
-}
+    <script src="script.js"></script>
+</body>
+</html>
