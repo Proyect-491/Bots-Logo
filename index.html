@@ -9,6 +9,14 @@
 </head>
 <body>
 
+    <div id="loader">
+        <div class="loader-content">
+            <h1 class="glitch">BOT&LOGS</h1>
+            <div class="progress-bar"><div class="progress-fill"></div></div>
+            <p id="loader-text">Cargando Arsenal...</p>
+        </div>
+    </div>
+
     <div class="grid-background"></div>
     <div class="status-indicator"><span class="dot"></span> SISTEMAS ONLINE</div>
 
@@ -16,7 +24,7 @@
         <div class="logo">BOT<span>&</span>LOGS ⚡</div>
         <ul class="nav-links">
             <li><a href="#inicio">Inicio</a></li>
-            <li><a href="#tienda">Arsenal</a></li>
+            <li><a href="#planes">Planes</a></li>
             <li><a href="#features">Élite</a></li>
             <li><a href="#tos">TOS</a></li>
             <li><a href="#soporte">Soporte</a></li>
@@ -25,79 +33,58 @@
 
     <header id="inicio" class="hero">
         <h1 class="glitch" data-text="BOT&LOGS">BOT&LOGS</h1>
-        <p class="subtitle">Scripts de FiveM Únicos, Ropa Personalizada y Discord Experto</p>
-        <a href="#tienda" class="btn-glow">EXPLORAR TIENDA</a>
+        <p class="subtitle">Scripts FiveM, Ropa Exclusiva y Soluciones Tech</p>
+        <a href="#planes" class="btn-glow">VER PLANES DE SOPORTE</a>
     </header>
 
+    <section id="planes" class="pricing-section">
+        <h2 class="section-title">PLANES DE SERVICIO</h2>
+        <div class="pricing-grid">
+            <div class="price-card">
+                <h3>BÁSICO</h3>
+                <div class="price">FREE<span>/con producto</span></div>
+                <ul>
+                    <li>✅ Archivos del producto</li>
+                    <li>✅ Guía de instalación PDF</li>
+                    <li>✅ Acceso a actualizaciones</li>
+                    <li>❌ Soporte en vivo</li>
+                </ul>
+                <a href="#soporte" class="btn-price">ELEGIR</a>
+            </div>
+            <div class="price-card featured">
+                <div class="pop">RECOMENDADO</div>
+                <h3>EXPERTO</h3>
+                <div class="price">CONSULTAR<span>/por ticket</span></div>
+                <ul>
+                    <li>✅ Todo lo del Básico</li>
+                    <li>✅ Instalación por nosotros</li>
+                    <li>✅ Configuración de DB</li>
+                    <li>✅ Soporte 24/7 Prioritario</li>
+                </ul>
+                <a href="#soporte" class="btn-price">ELEGIR</a>
+            </div>
+        </div>
+    </section>
+
     <section id="features" class="features-section">
-        <h2 class="section-title">NUESTROS ESTÁNDARES</h2>
+        <h2 class="section-title">POR QUÉ ELEGIRNOS</h2>
         <div class="features-grid">
-            <div class="feat-card">
-                <div class="feat-icon">🚀</div>
-                <h3>Optimización Total</h3>
-                <p>Scripts con consumo 0.00ms garantizado. Rendimiento puro.</p>
-            </div>
-            <div class="feat-card">
-                <div class="feat-icon">🛡️</div>
-                <h3>Seguridad Escrow</h3>
-                <p>Protección oficial de CFX para asegurar tu inversión.</p>
-            </div>
-            <div class="feat-card">
-                <div class="feat-icon">🛠️</div>
-                <h3>Soporte Técnico</h3>
-                <p>Te acompañamos en la instalación y configuración inicial.</p>
-            </div>
-        </div>
-    </section>
-
-    <section class="process-section">
-        <h2 class="section-title">CÓMO TRABAJAMOS</h2>
-        <div class="process-steps">
-            <div class="step"><span>1</span><h4>Elige</h4><p>Busca en el arsenal</p></div>
-            <div class="step"><span>2</span><h4>Ticket</h4><p>Entra al Discord</p></div>
-            <div class="step"><span>3</span><h4>Verifica</h4><p>Pago y TOS</p></div>
-            <div class="step"><span>4</span><h4>Recibe</h4><p>Entrega inmediata</p></div>
-        </div>
-    </section>
-
-    <section class="trust-section">
-        <h2 class="section-title">CLIENTES SATISFECHOS</h2>
-        <div class="testimonial-grid">
-            <div class="test-card">"El sistema de facciones es otro nivel, 100% recomendado." - <b>@Admin_RP</b></div>
-            <div class="test-card">"La ropa no pesa nada, mis usuarios están encantados." - <b>@Dueño_Server</b></div>
-        </div>
-    </section>
-
-    <section class="faq-section">
-        <h2 class="section-title">DUDAS RÁPIDAS (FAQ)</h2>
-        <div class="faq-container">
-            <details>
-                <summary>¿Los scripts son de por vida?</summary>
-                <p>Sí, una vez comprados tienes acceso permanente a la licencia.</p>
-            </details>
-            <details>
-                <summary>¿Hacéis trabajos personalizados?</summary>
-                <p>Sí, abre un ticket de "Custom" para presupuestos a medida.</p>
-            </details>
+            <div class="feat-card"><h3>🚀 0.00ms</h3><p>Optimización extrema.</p></div>
+            <div class="feat-card"><h3>🛡️ Escrow</h3><p>Protección CFX oficial.</p></div>
+            <div class="feat-card"><h3>🛠️ Soporte</h3><p>Ayuda técnica real.</p></div>
         </div>
     </section>
 
     <section id="tos" class="tos-container">
         <div class="tos-box">
-            <div class="tos-header-notice">
-                <h3>📜 AVISO LEGAL: TOS VINCULANTE</h3>
-                <p>Al comprar, aceptas automáticamente nuestros 34 puntos de normativa.</p>
-            </div>
-            <div class="tos-scroll-area">
-                <div id="tos-content"></div>
-            </div>
+            <h3>📜 TÉRMINOS Y CONDICIONES</h3>
+            <div class="tos-scroll-area" id="tos-content"></div>
         </div>
     </section>
 
     <section id="soporte" class="support-section">
         <div class="support-card">
-            <h2>¿LISTO PARA EMPEZAR?</h2>
-            <p>Únete a nuestra comunidad para adquirir tus productos.</p>
+            <h2>¿NECESITAS AYUDA?</h2>
             <a href="https://discord.gg/TU_LINK" class="btn-support" target="_blank">✅ ENTRAR AL DISCORD</a>
         </div>
     </section>
