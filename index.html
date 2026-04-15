@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BOT&LOGS | Arsenal Digital ⚡💎</title>
+    <title>BOT&LOGS | Proyect DCRP ⚡</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700;900&display=swap" rel="stylesheet">
 </head>
@@ -13,7 +13,7 @@
         <div class="loader-content">
             <h1 class="glitch">BOT&LOGS</h1>
             <div class="progress-bar"><div class="progress-fill"></div></div>
-            <p id="loader-text">Cargando Arsenal...</p>
+            <p id="loader-text">Sincronizando Arsenal...</p>
         </div>
     </div>
 
@@ -33,7 +33,7 @@
 
     <header id="inicio" class="hero">
         <h1 class="glitch" data-text="BOT&LOGS">BOT&LOGS</h1>
-        <p class="subtitle">Scripts FiveM, Ropa Exclusiva y Soluciones Tech</p>
+        <p class="subtitle">Scripts FiveM, Ropa Exclusiva y Soluciones Tech para Proyect DCRP</p>
         <a href="#planes" class="btn-glow">VER PLANES DE SOPORTE</a>
     </header>
 
@@ -43,11 +43,11 @@
             <div class="price-card">
                 <h3>BÁSICO</h3>
                 <div class="price">FREE<span>/con producto</span></div>
-                <ul>
-                    <li>✅ Archivos del producto</li>
-                    <li>✅ Guía de instalación PDF</li>
-                    <li>✅ Acceso a actualizaciones</li>
-                    <li>❌ Soporte en vivo</li>
+                <ul class="price-list">
+                    <li><span class="check">✔</span> Archivos del producto</li>
+                    <li><span class="check">✔</span> Guía de instalación PDF</li>
+                    <li><span class="check">✔</span> Acceso a actualizaciones</li>
+                    <li class="no"><span class="cross">✘</span> Soporte en vivo</li>
                 </ul>
                 <a href="#soporte" class="btn-price">ELEGIR</a>
             </div>
@@ -55,11 +55,11 @@
                 <div class="pop">RECOMENDADO</div>
                 <h3>EXPERTO</h3>
                 <div class="price">CONSULTAR<span>/por ticket</span></div>
-                <ul>
-                    <li>✅ Todo lo del Básico</li>
-                    <li>✅ Instalación por nosotros</li>
-                    <li>✅ Configuración de DB</li>
-                    <li>✅ Soporte 24/7 Prioritario</li>
+                <ul class="price-list">
+                    <li><span class="check">✔</span> Todo lo del Básico</li>
+                    <li><span class="check">✔</span> Instalación por nosotros</li>
+                    <li><span class="check">✔</span> Configuración de DB</li>
+                    <li><span class="check">✔</span> Soporte 24/7 Prioritario</li>
                 </ul>
                 <a href="#soporte" class="btn-price">ELEGIR</a>
             </div>
@@ -69,22 +69,50 @@
     <section id="features" class="features-section">
         <h2 class="section-title">POR QUÉ ELEGIRNOS</h2>
         <div class="features-grid">
-            <div class="feat-card"><h3>🚀 0.00ms</h3><p>Optimización extrema.</p></div>
-            <div class="feat-card"><h3>🛡️ Escrow</h3><p>Protección CFX oficial.</p></div>
-            <div class="feat-card"><h3>🛠️ Soporte</h3><p>Ayuda técnica real.</p></div>
+            <div class="feat-card">
+                <span class="icon">🚀</span>
+                <h3>0.00ms</h3>
+                <p>Optimización extrema.</p>
+            </div>
+            <div class="feat-card">
+                <span class="icon">🛡</span>
+                <h3>Escrow</h3>
+                <p>Protección CFX oficial.</p>
+            </div>
+            <div class="feat-card">
+                <span class="icon">🛠</span>
+                <h3>Soporte</h3>
+                <p>Ayuda técnica real.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="process-section">
+        <h2 class="section-title">NUESTRO ARSENAL</h2>
+        <div class="process-steps">
+            <div class="step"><span>✈</span><h4>Aeropuerto</h4><p>Punto de partida</p></div>
+            <div class="step"><span>📦</span><h4>Packs</h4><p>Música y Logos</p></div>
+            <li><span>⚙</span><h4>Bots</h4><p>Tipos y Alojamiento</p></div>
+            <div class="step"><span>🎟</span><h4>Tickets</h4><p>Soporte directo</p></div>
         </div>
     </section>
 
     <section id="tos" class="tos-container">
+        <h2 class="section-title">TÉRMINOS DE SERVICIO</h2>
         <div class="tos-box">
-            <h3>📜 TÉRMINOS Y CONDICIONES</h3>
-            <div class="tos-scroll-area" id="tos-content"></div>
+            <div class="tos-header-notice">
+                <h3>📜 TÉRMINOS Y CONDICIONES</h3>
+                <p>Al comprar, aceptas automáticamente nuestros 34 puntos de condiciones.</p>
+            </div>
+            <div class="tos-scroll-area" id="tos-content">
+                </div>
         </div>
     </section>
 
     <section id="soporte" class="support-section">
         <div class="support-card">
             <h2>¿NECESITAS AYUDA?</h2>
+            <p>Abre un ticket en nuestro servidor para asistencia directa.</p>
             <a href="https://discord.gg/TU_LINK" class="btn-support" target="_blank">✅ ENTRAR AL DISCORD</a>
         </div>
     </section>
