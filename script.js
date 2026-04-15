@@ -35,28 +35,11 @@ const puntosTOS = [
     { t: "34. Idioma Oficial", d: "Toda comunicación y soporte se realiza en Español para evitar errores de interpretación." }
 ];
 
-const content = document.getElementById('tos-content');
+const container = document.getElementById('tos-content');
 
 puntosTOS.forEach(punto => {
     const div = document.createElement('div');
     div.className = 'tos-point';
     div.innerHTML = `<h4>${punto.t}</h4><p>${punto.d}</p>`;
-    content.appendChild(div);
-});
-
-// Efecto de aparición suave al hacer scroll
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if(entry.isIntersecting) {
-            entry.target.style.opacity = "1";
-            entry.target.style.transform = "translateY(0)";
-        }
-    });
-}, { threshold: 0.1 });
-
-document.querySelectorAll('.card').forEach(card => {
-    card.style.opacity = "0";
-    card.style.transform = "translateY(50px)";
-    card.style.transition = "0.6s ease-out";
-    observer.observe(card);
+    container.appendChild(div);
 });
