@@ -1,3 +1,26 @@
+// LÓGICA DE CARGA (Simulada para impacto visual)
+window.addEventListener('load', () => {
+    let fill = document.querySelector('.progress-fill');
+    let text = document.getElementById('loader-text');
+    let width = 0;
+    
+    let interval = setInterval(() => {
+        width += Math.random() * 30;
+        if(width >= 100) {
+            width = 100;
+            clearInterval(interval);
+            setTimeout(() => {
+                document.getElementById('loader').style.opacity = '0';
+                setTimeout(() => document.getElementById('loader').style.display = 'none', 1000);
+            }, 500);
+        }
+        fill.style.width = width + '%';
+        if(width > 40) text.innerText = "Sincronizando Scripts...";
+        if(width > 80) text.innerText = "Arsenal Listo.";
+    }, 200);
+});
+
+// LÓGICA DE TOS
 const puntosTOS = [
     { t: "1. Política Estricta de No Reembolso", d: "Debido a la naturaleza digital de nuestros productos, todas las ventas son finales. Sin excepciones: una vez entregado o iniciado el servicio, no hay devoluciones." },
     { t: "2. Categorías de Productos y Servicios", d: "Incluye configuración de Bots, Packs de Música, Logos y Scripts/Ropa de FiveM. No nos responsabilizamos de cambios en APIs externas." },
@@ -35,11 +58,7 @@ const puntosTOS = [
     { t: "34. Idioma Oficial", d: "Toda comunicación y soporte se realiza en Español para evitar errores de interpretación." }
 ];
 
-const container = document.getElementById('tos-content');
-
-puntosTOS.forEach(punto => {
-    const div = document.createElement('div');
-    div.className = 'tos-point';
-    div.innerHTML = `<h4>${punto.t}</h4><p>${punto.d}</p>`;
-    container.appendChild(div);
+const tosCont = document.getElementById('tos-content');
+puntosTOS.forEach(p => {
+    tosCont.innerHTML += `<div><h4 style="color:#00d2ff; margin-top:15px">${p.t}</h4><p style="color:#aaa; font-size:0.85rem">${p.d}</p></div>`;
 });
