@@ -7,7 +7,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700;900&display=swap" rel="stylesheet">
     
     <style>
-        /* --- ESTILOS (style.css) --- */
         :root {
             --bg: #0a0a0c;
             --card: #111111;
@@ -234,9 +233,6 @@
     </section>
 
     <script>
-        /* --- LÓGICA (script.js) --- */
-
-        // LÓGICA DE CARGA
         window.addEventListener('load', () => {
             let fill = document.querySelector('.progress-fill');
             let text = document.getElementById('loader-text');
@@ -258,7 +254,6 @@
             }, 200);
         });
 
-        // LÓGICA DE TOS
         const puntosTOS = [
             { t: "1. Política Estricta de No Reembolso", d: "Debido a la naturaleza digital de nuestros productos, todas las ventas son finales. Sin excepciones: una vez entregado o iniciado el servicio, no hay devoluciones." },
             { t: "2. Categorías de Productos y Servicios", d: "Incluye configuración de Bots, Packs de Música, Logos y Scripts/Ropa de FiveM. No nos responsabilizamos de cambios en APIs externas." },
@@ -304,7 +299,6 @@
                     <p style="color:#b9bbbe; font-size:0.9rem; line-height: 1.6;">${p.d}</p>
                 </div>`;
         });
-        // Lógica de la barra de lectura (Punto 7)
 window.addEventListener('scroll', () => {
     const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
     const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
@@ -312,17 +306,16 @@ window.addEventListener('scroll', () => {
     document.getElementById("scroll-progress").style.width = scrolled + "%";
 });
 
-// Lógica del texto que cambia (Punto 2)
 const phrases = ["Scripts FiveM", "Bots Discord", "Packs de Música", "Diseño de Logs"];
 let currentPhrase = 0;
 const textElement = document.getElementById("changing-text");
 
 function changePhrases() {
-    textElement.style.opacity = "0"; // Efecto salida
+    textElement.style.opacity = "0"; 
     setTimeout(() => {
         currentPhrase = (currentPhrase + 1) % phrases.length;
         textElement.innerText = phrases[currentPhrase];
-        textElement.style.opacity = "1"; // Efecto entrada
+        textElement.style.opacity = "1"; 
     }, 500);
 }
 setInterval(changePhrases, 3000);
