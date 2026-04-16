@@ -5,7 +5,107 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BOT&LOGS | Proyect DCRP ⚡</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    
+    <style>
+        /* --- ESTILOS (style.css) --- */
+        :root {
+            --bg: #0a0a0c;
+            --card: #111111;
+            --blue-neon: #00e5ff;
+            --pink-neon: #ff007f;
+            --text-white: #ffffff;
+            --text-dim: #b9bbbe;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
+        body { background: var(--bg); color: var(--text-white); font-family: 'Poppins', sans-serif; overflow-x: hidden; }
+
+        .grid-background {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background-image: linear-gradient(to right, rgba(255,255,255,0.02) 1px, transparent 1px),
+                              linear-gradient(to bottom, rgba(255,255,255,0.02) 1px, transparent 1px);
+            background-size: 40px 40px; z-index: -1;
+        }
+
+        #loader {
+            position: fixed; width: 100%; height: 100%; background: var(--bg);
+            display: flex; justify-content: center; align-items: center; z-index: 9999;
+            transition: opacity 0.5s ease;
+        }
+        .loader-content { text-align: center; }
+        .progress-bar { width: 300px; height: 4px; background: #222; border-radius: 10px; overflow: hidden; margin: 20px 0; }
+        .progress-fill { width: 0%; height: 100%; background: var(--blue-neon); box-shadow: 0 0 10px var(--blue-neon); transition: width 0.2s; }
+
+        .navbar {
+            display: flex; justify-content: space-between; align-items: center; padding: 20px 8%;
+            position: sticky; top: 0; background: rgba(10,10,12,0.95); z-index: 100; border-bottom: 1px solid #1a1a1a;
+        }
+        .logo { font-weight: 900; font-size: 1.5rem; }
+        .logo span { color: var(--blue-neon); }
+        .nav-links { display: flex; list-style: none; gap: 20px; }
+        .nav-links a { color: var(--text-white); text-decoration: none; font-size: 0.9rem; transition: 0.3s; }
+        .nav-links a:hover { color: var(--blue-neon); }
+
+        .status-indicator { 
+            border: 1px solid var(--blue-neon); padding: 5px 15px; border-radius: 20px; 
+            font-size: 12px; display: flex; align-items: center; position: fixed; bottom: 20px; left: 20px; background: var(--bg); z-index: 90;
+        }
+        .dot { height: 8px; width: 8px; background: #00ff00; border-radius: 50%; margin-right: 10px; box-shadow: 0 0 10px #00ff00; }
+
+        .hero { height: 80vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
+        .glitch { font-size: 4rem; font-weight: 900; text-transform: uppercase; color: var(--text-white); letter-spacing: 5px; }
+        .subtitle { color: var(--text-dim); margin-top: 15px; max-width: 600px; }
+        .btn-glow {
+            margin-top: 30px; padding: 15px 35px; background: var(--blue-neon); color: black;
+            text-decoration: none; font-weight: 900; border-radius: 5px; box-shadow: 0 0 20px rgba(0,229,255,0.4); transition: 0.3s;
+        }
+        .btn-glow:hover { transform: scale(1.05); box-shadow: 0 0 35px var(--blue-neon); }
+
+        .section-title { text-align: center; font-size: 2.5rem; margin: 50px 0; font-weight: 900; }
+
+        .pricing-grid { display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; padding: 20px 5%; }
+        .price-card {
+            background: var(--card); border: 1px solid #222; padding: 40px;
+            border-radius: 15px; width: 320px; text-align: center; transition: 0.3s; position: relative;
+        }
+        .price-card.featured { border: 2px solid var(--pink-neon); transform: scale(1.05); }
+        .pop { position: absolute; top: -15px; left: 50%; transform: translateX(-50%); background: var(--pink-neon); padding: 5px 15px; border-radius: 20px; font-size: 12px; font-weight: bold; }
+        .price { font-size: 2rem; font-weight: 900; color: var(--blue-neon); margin: 20px 0; }
+        .price span { font-size: 0.9rem; color: var(--text-dim); }
+        .price-list { list-style: none; text-align: left; margin-bottom: 30px; color: var(--text-dim); }
+        .price-list li { margin: 12px 0; }
+        .btn-price { display: block; padding: 12px; border: 1px solid var(--blue-neon); color: var(--blue-neon); text-decoration: none; border-radius: 5px; transition: 0.3s; }
+        .btn-price:hover { background: var(--blue-neon); color: black; }
+
+        .features-grid { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; padding: 0 5%; }
+        .feat-card { background: var(--card); padding: 30px; border-radius: 10px; width: 250px; text-align: center; border: 1px solid #222; }
+        .feat-card .icon { font-size: 2rem; display: block; margin-bottom: 10px; }
+
+        .process-steps { display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; padding: 40px 5%; list-style: none; }
+        .step { text-align: center; width: 150px; }
+        .step span { font-size: 2.5rem; color: var(--blue-neon); }
+
+        .tos-container { padding: 50px 5%; }
+        .tos-box {
+            background: #0d0d0d; border: 1px solid var(--pink-neon);
+            max-width: 900px; margin: 0 auto; padding: 30px; border-radius: 10px;
+        }
+        .tos-header-notice { border-bottom: 1px solid #222; padding-bottom: 20px; margin-bottom: 20px; }
+        .tos-scroll-area { height: 450px; overflow-y: auto; padding-right: 15px; scrollbar-width: thin; scrollbar-color: var(--pink-neon) #111; }
+        .tos-scroll-area::-webkit-scrollbar { width: 6px; }
+        .tos-scroll-area::-webkit-scrollbar-thumb { background: var(--pink-neon); border-radius: 10px; }
+
+        .support-card {
+            border: 1px solid var(--blue-neon); padding: 60px; border-radius: 20px;
+            text-align: center; max-width: 900px; margin: 80px auto; background: rgba(0, 229, 255, 0.02);
+        }
+        .btn-support {
+            background: var(--blue-neon); color: black; padding: 15px 40px;
+            border-radius: 10px; font-weight: 900; text-decoration: none;
+            display: inline-block; margin-top: 20px; box-shadow: 0 0 20px rgba(0,229,255,0.4); transition: 0.3s;
+        }
+        .btn-support:hover { transform: scale(1.1); box-shadow: 0 0 30px var(--blue-neon); }
+    </style>
 </head>
 <body>
 
@@ -47,7 +147,7 @@
                     <li><span class="check">✔</span> Archivos del producto</li>
                     <li><span class="check">✔</span> Guía de instalación PDF</li>
                     <li><span class="check">✔</span> Acceso a actualizaciones</li>
-                    <li class="no"><span class="cross">✘</span> Soporte en vivo</li>
+                    <li style="opacity: 0.5;"><span class="cross">✘</span> Soporte en vivo</li>
                 </ul>
                 <a href="#soporte" class="btn-price">ELEGIR</a>
             </div>
@@ -89,12 +189,12 @@
 
     <section class="process-section">
         <h2 class="section-title">NUESTRO ARSENAL</h2>
-        <div class="process-steps">
-            <div class="step"><span>✈</span><h4>Aeropuerto</h4><p>Punto de partida</p></div>
-            <div class="step"><span>📦</span><h4>Packs</h4><p>Música y Logos</p></div>
-            <li><span>⚙</span><h4>Bots</h4><p>Tipos y Alojamiento</p></div>
-            <div class="step"><span>🎟</span><h4>Tickets</h4><p>Soporte directo</p></div>
-        </div>
+        <ul class="process-steps">
+            <li class="step"><span>✈</span><h4>Aeropuerto</h4><p>Punto de partida</p></li>
+            <li class="step"><span>📦</span><h4>Packs</h4><p>Música y Logos</p></li>
+            <li class="step"><span>⚙</span><h4>Bots</h4><p>Tipos y Alojamiento</p></li>
+            <li class="step"><span>🎟</span><h4>Tickets</h4><p>Soporte directo</p></li>
+        </ul>
     </section>
 
     <section id="tos" class="tos-container">
@@ -106,6 +206,15 @@
             </div>
             <div class="tos-scroll-area" id="tos-content">
                 </div>
+
+            <div style="padding: 20px; background: #111; border-top: 1px solid #222; text-align: center;">
+                <p style="color: #eee; font-size: 0.9rem; margin-bottom: 10px;">¿Necesitas más detalles?</p>
+                <a href="https://proyect-491.github.io/Terminos-y-Condiciones-Bot-Logs/" 
+                   target="_blank" 
+                   style="color: var(--blue-neon); text-decoration: none; font-weight: bold; font-size: 0.85rem; border: 1px dashed var(--blue-neon); padding: 8px 15px; border-radius: 5px; display: inline-block;">
+                   🔗 Clic aquí para más información detallada
+                </a>
+            </div>
         </div>
     </section>
 
@@ -117,6 +226,77 @@
         </div>
     </section>
 
-    <script src="script.js"></script>
+    <script>
+        /* --- LÓGICA (script.js) --- */
+
+        // LÓGICA DE CARGA
+        window.addEventListener('load', () => {
+            let fill = document.querySelector('.progress-fill');
+            let text = document.getElementById('loader-text');
+            let width = 0;
+            
+            let interval = setInterval(() => {
+                width += Math.random() * 30;
+                if(width >= 100) {
+                    width = 100;
+                    clearInterval(interval);
+                    setTimeout(() => {
+                        document.getElementById('loader').style.opacity = '0';
+                        setTimeout(() => document.getElementById('loader').style.display = 'none', 500);
+                    }, 500);
+                }
+                fill.style.width = width + '%';
+                if(width > 40) text.innerText = "Sincronizando Scripts...";
+                if(width > 80) text.innerText = "Arsenal Listo.";
+            }, 200);
+        });
+
+        // LÓGICA DE TOS
+        const puntosTOS = [
+            { t: "1. Política Estricta de No Reembolso", d: "Debido a la naturaleza digital de nuestros productos, todas las ventas son finales. Sin excepciones: una vez entregado o iniciado el servicio, no hay devoluciones." },
+            { t: "2. Categorías de Productos y Servicios", d: "Incluye configuración de Bots, Packs de Música, Logos y Scripts/Ropa de FiveM. No nos responsabilizamos de cambios en APIs externas." },
+            { t: "3. Soporte Técnico", d: "Incluye soporte estrictamente para la instalación básica por 30 días. No incluye modificaciones personalizadas del código." },
+            { t: "4. Responsabilidad del Cliente", d: "El cliente debe verificar requisitos técnicos, proporcionar datos correctos y mantener sus propias copias de seguridad." },
+            { t: "5. Garantía de Funcionamiento y Pruebas", d: "Todo ha sido testeado en entornos reales. No nos hacemos responsables si el cliente modifica el código base." },
+            { t: "6. Alojamiento (Hosting) de Bots", d: "Se rige por el plan contratado. Se dan 24h de gracia tras el vencimiento antes del apagado permanente." },
+            { t: "7. Responsabilidad Legal y Uso Malicioso", d: "El cliente es el único responsable legal del uso del software. Actividades ilícitas causarán terminación inmediata." },
+            { t: "8. Derecho de Admisión y Modificación", d: "Nos reservamos el derecho de rechazar servicios a usuarios tóxicos y de actualizar estos términos en cualquier momento." },
+            { t: "9. Actualizaciones de Scripts", d: "La compra incluye la versión actual. Actualizaciones futuras pueden ser de pago según el criterio del desarrollador." },
+            { t: "10. Prohibición de Leaks y Reventa", d: "Si se detecta filtración o reventa, se procederá al baneo inmediato de toda la red y revocación de licencias." },
+            { t: "11. Limitación de Responsabilidad", d: "No nos hacemos responsables de pérdidas económicas o baneos en plataformas externas (Discord/FiveM)." },
+            { t: "12. Tiempo de Entrega y Customs", d: "Productos automáticos son inmediatos. Los personalizados tienen plazos estimados. Incluyen 2 revisiones gratuitas." },
+            { t: "13. Abuso del Soporte", d: "No se dará soporte ante faltas de respeto. El soporte es para errores, no para clases de programación." },
+            { t: "14. Verificación de Identidad", d: "Nos reservamos el derecho de solicitar pruebas de pago ante transacciones sospechosas para prevenir fraude." },
+            { t: "15. Inactividad de Tickets", d: "Tickets sin respuesta por 48h serán cerrados. Reclamaciones válidas solo dentro de los primeros 15 días." },
+            { t: "16. Modificaciones por Terceros", d: "Cualquier manipulación del código por personal ajeno a nuestro equipo anula la garantía y el soporte." },
+            { t: "17. Disponibilidad del Servicio (Uptime)", d: "No nos responsabilizamos de caídas por mantenimientos programados o fallos en centros de datos externos." },
+            { t: "18. Logs y Privacidad", d: "Aceptas la generación de registros de actividad para mejorar el servicio. Tus datos no serán vendidos." },
+            { t: "19. Jurisdicción y Prueba Digital", d: "La interacción con el bot de tickets actúa como una firma digital vinculante y aceptación de términos." },
+            { t: "20. Requisitos de Escrow (CFX)", d: "El cliente es responsable de proporcionar la cuenta de Keymaster correcta. No hay cambios por errores de vinculación." },
+            { t: "21. Política de Chargeback Preventiva", d: "Contracargos fraudulentos resultarán en el reporte de tus datos a listas negras (Blacklists) de la comunidad." },
+            { t: "22. Errores de Precio o Stock", d: "Podemos cancelar órdenes con precios erróneos por fallos técnicos, ofreciendo crédito en tienda o pago de diferencia." },
+            { t: "23. Prohibición de Ingeniería Inversa", d: "Queda prohibido descompilar o intentar descifrar los métodos de seguridad de nuestros productos." },
+            { t: "24. Fuerza Mayor", d: "No respondemos por fallos causados por caídas globales de Discord, CFX.re o problemas de red nacional." },
+            { t: "25. Pagos Externos (Amigos y Familiares)", d: "Al elegir esta modalidad, confirmas la recepción satisfactoria por anticipado y renuncias a disputas." },
+            { t: "26. Requisitos de Mayoría de Edad", d: "Declaras tener capacidad legal o permiso de tutores. No se reembolsan compras accidentales de menores." },
+            { t: "27. Acceso a Descargas", d: "Enlaces válidos por 7 días. La re-emisión posterior puede conllevar una tasa administrativa." },
+            { t: "28. Modificaciones de Plataformas Base", d: "No somos responsables si cambios en la API de Discord o FiveM dejan obsoleto el producto." },
+            { t: "29. Acuerdo de Confidencialidad", d: "Prohibido filtrar capturas o conversaciones privadas del soporte con el fin de dañar nuestra imagen." },
+            { t: "30. Cláusula de Sentido Común", d: "La administración interpretará situaciones no previstas. El sabotaje al servidor conlleva baneo inmediato." },
+            { t: "31. Compras para Terceros", d: "La licencia pertenece al destinatario final. No intervenimos en conflictos personales entre usuarios." },
+            { t: "32. Obsolescencia", d: "No se garantiza soporte para productos descatalogados en versiones de software extremadamente nuevas." },
+            { t: "33. Prohibición de Coacción", d: "Amenazar con reseñas negativas para obtener extras resultará en la cancelación total del servicio." },
+            { t: "34. Idioma Oficial", d: "Toda comunicación y soporte se realiza en Español para evitar errores de interpretación." }
+        ];
+
+        const tosCont = document.getElementById('tos-content');
+        puntosTOS.forEach(p => {
+            tosCont.innerHTML += `
+                <div style="border-bottom: 1px solid #1a1a1a; padding: 20px 0;">
+                    <h4 style="color:#00e5ff; margin-bottom: 8px">${p.t}</h4>
+                    <p style="color:#b9bbbe; font-size:0.9rem; line-height: 1.6;">${p.d}</p>
+                </div>`;
+        });
+    </script>
 </body>
 </html>
