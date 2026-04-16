@@ -106,24 +106,6 @@
         }
         .btn-support:hover { transform: scale(1.1); box-shadow: 0 0 30px var(--blue-neon); }
 
-        /* Efecto Escaneo */
-        body::after {
-           content: "";
-           position: fixed;
-           top: -100px;
-           left: 0;
-           width: 100%;
-           height: 100px;
-           background: linear-gradient(to bottom, transparent, rgba(0, 229, 255, 0.1), transparent);
-           animation: scanLine 8s linear infinite;
-           pointer-events: none;
-           z-index: 9998;
-       }
-
-       @keyframes scanLine {
-           0% { top: -100px; }
-           100% { top: 100vh; }
-       }
     </style>
 </head>
 <body>
