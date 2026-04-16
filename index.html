@@ -105,10 +105,29 @@
             display: inline-block; margin-top: 20px; box-shadow: 0 0 20px rgba(0,229,255,0.4); transition: 0.3s;
         }
         .btn-support:hover { transform: scale(1.1); box-shadow: 0 0 30px var(--blue-neon); }
+
+        /* Efecto Escaneo */
+        body::after {
+           content: "";
+           position: fixed;
+           top: -100px;
+           left: 0;
+           width: 100%;
+           height: 100px;
+           background: linear-gradient(to bottom, transparent, rgba(0, 229, 255, 0.1), transparent);
+           animation: scanLine 8s linear infinite;
+           pointer-events: none;
+           z-index: 9998;
+       }
+
+       @keyframes scanLine {
+           0% { top: -100px; }
+           100% { top: 100vh; }
+       }
     </style>
 </head>
 <body>
-
+    <div id="scroll-progress" style="position: fixed; top: 0; left: 0; width: 0%; height: 4px; background: var(--pink-neon); z-index: 9999; box-shadow: 0 0 10px var(--pink-neon);"></div>
     <div id="loader">
         <div class="loader-content">
             <h1 class="glitch">BOT&LOGS</h1>
@@ -133,7 +152,7 @@
 
     <header id="inicio" class="hero">
         <h1 class="glitch" data-text="BOT&LOGS">BOT&LOGS</h1>
-        <p class="subtitle">Scripts FiveM, Ropa Exclusiva y Soluciones Tech para Proyect DCRP</p>
+        <p class="subtitle"> Expertos en <span id="changing-text" style="color: var(--blue-neon); font-weight: bold; border-right: 2px solid var(--blue-neon); padding-right: 5px;">Scripts FiveM</span></p>
         <a href="#planes" class="btn-glow">VER PLANES DE SOPORTE</a>
     </header>
 
@@ -183,6 +202,12 @@
                 <span class="icon">🛠</span>
                 <h3>Soporte</h3>
                 <p>Ayuda técnica real.</p>
+            </div>
+            <div style="display: flex; justify-content: center; align-items: center; gap: 10px; margin-top: 40px; opacity: 0.7;">
+                 <span style="font-size: 1.5rem;">🛡️</span>
+                 <div style="text-align: left;">
+                 <h4 style="font-size: 0.8rem; color: #00ff00;">VERIFIED ESCROW</h4>
+                 <p style="font-size: 0.6rem; color: var(--text-dim);">Protección oficial CFX.re garantizada</p>
             </div>
         </div>
     </section>
@@ -297,6 +322,28 @@
                     <p style="color:#b9bbbe; font-size:0.9rem; line-height: 1.6;">${p.d}</p>
                 </div>`;
         });
+        // Lógica de la barra de lectura (Punto 7)
+window.addEventListener('scroll', () => {
+    const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+    const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    const scrolled = (winScroll / height) * 100;
+    document.getElementById("scroll-progress").style.width = scrolled + "%";
+});
+
+// Lógica del texto que cambia (Punto 2)
+const phrases = ["Scripts FiveM", "Bots Discord", "Packs de Música", "Diseño de Logs"];
+let currentPhrase = 0;
+const textElement = document.getElementById("changing-text");
+
+function changePhrases() {
+    textElement.style.opacity = "0"; // Efecto salida
+    setTimeout(() => {
+        currentPhrase = (currentPhrase + 1) % phrases.length;
+        textElement.innerText = phrases[currentPhrase];
+        textElement.style.opacity = "1"; // Efecto entrada
+    }, 500);
+}
+setInterval(changePhrases, 3000);
     </script>
 </body>
 </html>
